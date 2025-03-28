@@ -24,6 +24,10 @@ def main() -> None:
 
     event_handler = EventHandler()
 
+    FOV_ALGO = 0  # Default FOV algorithm
+    FOV_LIGHT_WALLS = True
+    FOV_RADIUS = 10
+
     player = Entity(int(screen_width / 2), int(screen_height / 2), "@", (255, 255, 255))
     npc = Entity(int(screen_width / 2 - 5), int(screen_height / 2), "@", (255, 255, 0))
     entities = {npc, player}

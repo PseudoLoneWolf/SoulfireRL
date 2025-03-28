@@ -12,18 +12,29 @@ class EventHandler(tcod.event.EventDispatch[Action]):
         action: Optional[Action] = None
 
         key = event.sym
-
-        if key == tcod.event.K_UP:
+        if key == tcod.event.KeySym.KP_8: # Up
             action = MovementAction(dx=0, dy=-1)
-        elif key == tcod.event.K_DOWN:
+        elif key == tcod.event.KeySym.KP_2: # Down
             action = MovementAction(dx=0, dy=1)
-        elif key == tcod.event.K_LEFT:
+        elif key == tcod.event.KeySym.KP_4: # Left
             action = MovementAction(dx=-1, dy=0)
-        elif key == tcod.event.K_RIGHT:
+        elif key == tcod.event.KeySym.KP_6: # Right
             action = MovementAction(dx=1, dy=0)
+        elif key == tcod.event.KeySym.KP_7: # Up-Left
+            action = MovementAction(dx=-1, dy=-1)
+        elif key == tcod.event.KeySym.KP_9: # Up-Right
+            action = MovementAction(dx=1, dy=-1)
+        elif key == tcod.event.KeySym.KP_1: # Down-Left
+            action = MovementAction(dx=-1, dy=1)
+        elif key == tcod.event.KeySym.KP_3: # Down-Right
+            action = MovementAction(dx=1, dy=1)
+
+        elif key == tcod.event.KeySym.KP_5: # Wait
+            action = MovementAction(dx=0, dy=0)
 
         elif key == tcod.event.K_ESCAPE:
             action = EscapeAction()
+
 
         # No valid key was pressed
         return action

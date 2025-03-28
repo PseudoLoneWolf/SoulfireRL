@@ -4,7 +4,7 @@ import tcod
 from engine import Engine
 from entity import Entity
 from input_handlers import EventHandler
-from procgen import generate_dungeon
+from procgen import generate_dungeon, title_picker
 
 
 def main() -> None:
@@ -37,13 +37,15 @@ def main() -> None:
         player=player
     )
 
+
     engine = Engine(entities=entities, event_handler=event_handler, game_map=game_map, player=player)
+    title = title_picker()
 
     with tcod.context.new_terminal(
         screen_width,
         screen_height,
         tileset=tileset,
-        title="lol don't die",
+        title=title,
         vsync=True,
     ) as context:
         root_console = tcod.Console(screen_width, screen_height, order="F")

@@ -103,3 +103,15 @@ def generate_dungeon(
         rooms.append(new_room)
 
     return dungeon
+
+def title_picker() -> str:
+        title_picker = [
+            "lol don't die",
+            "now with more ascii",
+            "the real dungeon experience™",
+            "this was not sponsored or approved by anyone",
+            "help I'm trapped in the roguelike machine",
+            "oof ow ouch my bones",
+        ]
+        title = random.choice(title_picker)
+        return title
